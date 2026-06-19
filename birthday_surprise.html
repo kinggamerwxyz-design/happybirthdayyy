@@ -479,7 +479,7 @@
       <circle cx="4" cy="30" r="2.4" fill="currentColor" stroke="none"/>
     </svg>
 
-    <div class="eyebrow">for you ✦</div>
+    <div class="eyebrow" id="eyebrow">✦</div>
 
     <div class="perspective-wrap">
       <div class="content-inner" id="contentInner">
@@ -515,15 +515,21 @@
   const pages = [
     {
       style: "prose",
-      html: `<span class="quote">A soft twilight, stars are visible yet not visible. Kinda confused about the color of the sky. Is it golden yellow? Or magentaish purple? Maybe both, maybe blending into each other. Clouds are chasing the colors as if they own it. Feels like the birds are calling me to join them, fly with them, feel the sky a bit more closely. There is a quiet, unspoken presence, not bright enough to notice but strong enough to feel. And just like that, the sky kept changing without ever explaining itself, and I kept watching without needing any answers...</span><span class="addr">If you were a place then I would have described you like this. Sometimes I wonder, we might have never met, but yet met in a really strange way. And I'm glad.</span>`,
+      html: `<span class="quote">A soft twilight, stars are visible yet not visible. Kinda confused about the color of the sky. Is it golden yellow? Or magentaish purple? Maybe both, maybe blending into each other. Feels like the birds are calling me to join them, to fly with them, to feel the sky a bit more closely. Clouds are chasing the colors as if they own it. There is a quiet, unspoken presence, not bright enough to notice but strong enough to feel. And just like that, the sky kept changing without ever explaining itself, and I kept watching without needing any answers...</span><span class="addr">If you were a place then I would have described you like this. Sometimes I wonder, we might have never met, but yet met in a really strange way. And I'm glad.</span>`,
       audio: ""
     },
     {
       style: "lines",
-      html: `This song is hard to sing tbh, bt i tried ;-;<br>Hopefully i didnt ruin it :((<br>Also the guitar part, i literally learn this while singing the song. Uhh im just bad at these,<br>sorry :(`,
+      html: `This song is hard to sing tbh, bt i tried my best ;-;<br>Hopefully i didnt ruin it :((<br>Also the guitar part, i literally learnt it while singing the song. Uhh im just bad at these,<br>sorry :(`,
       audio: "audio/song.mp3"
     },
     { preText: "Make a wish, then blow out the candle 🕯️", text: "Happy birthday, Nuhaaaa ✨", audio: "", finale: true }
+  ];
+
+  const eyebrowLabels = [
+    "A message for you ✦",
+    "Sorry for your ear ✦",
+    "Enjoy the day ✦"
   ];
 
   let current = 0;
@@ -533,6 +539,7 @@
   const finaleWrap = document.getElementById("finaleWrap");
   const contentInner = document.getElementById("contentInner");
   const backBtn = document.getElementById("backBtn");
+  const eyebrowEl = document.getElementById("eyebrow");
   const nextBtn = document.getElementById("nextBtn");
   const dotsEl = document.getElementById("dots");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -685,6 +692,8 @@
   
   function renderPage(){
     const page = pages[current];
+
+    eyebrowEl.textContent = eyebrowLabels[current];
 
     textEl.className = "message" + (page.style ? " " + page.style : "");
     textEl.style.opacity = "1";
