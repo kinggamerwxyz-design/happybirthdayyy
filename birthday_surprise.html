@@ -720,10 +720,12 @@
 
   function changePage(direction){
     if(current === pages.length - 1 && direction === 1){
-      current = 0;
-    } else {
-      current = Math.min(Math.max(current + direction, 0), pages.length - 1);
+      reopenEnvelope();
+      return;
     }
+
+    current = Math.min(Math.max(current + direction, 0), pages.length - 1);
+    candleBlown = false;
 
     if(reduceMotion){
       renderPage();
