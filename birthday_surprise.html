@@ -527,9 +527,9 @@
   ];
 
   const eyebrowLabels = [
-    "A message for you ✦",
+    "Just a little thought ✦",
     "Sorry for your ear ✦",
-    "Enjoy the day ✦"
+    "The last page ✦"
   ];
 
   let current = 0;
@@ -640,7 +640,7 @@
       if(revealText){
         textEl.style.opacity = "0";
         setTimeout(() => {
-          textEl.innerHTML = `<span class="blown-title">${revealText}</span><span class="blown-note">Really really glad to have a friend like you,&nbsp; Wishing you all the happiness your heart can hold.<br><em>—Shishir</em></span>`;
+          textEl.innerHTML = `<span class="blown-title">${revealText}</span><span class="blown-note">Really really glad to have a friend like you.&nbsp; Wishing you all the happiness your heart can hold.<br><em>—Shishir</em></span>`;
           textEl.className = "message blown-message";
           textEl.style.opacity = "1";
         }, reduceMotion ? 0 : 350);
